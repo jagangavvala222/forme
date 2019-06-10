@@ -1,0 +1,21 @@
+{% extends 'testapp/base.html' %}
+
+{% block content %}
+<table>
+<thead>
+  <th>description</th>
+  <th>File</th>
+  <th>Uploaded Time</th>
+
+</thead>
+{% for obj in documents %}
+<tr>
+  <td>  <h2>{{obj.description}}</h2></td>
+  <td><a href="{{ obj.document.url }}">{{ obj.document.name | truncatewords:20 }}</a></td>
+  <td><small> {{ obj.uploaded_at }}</small></td>
+</tr>
+{% endfor %}
+</table>
+
+
+{% endblock %}
